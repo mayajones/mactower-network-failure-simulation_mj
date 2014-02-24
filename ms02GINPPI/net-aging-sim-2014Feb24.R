@@ -98,19 +98,17 @@ for( i in 1:5 ){
         } 
       }# end of j while-loop, population loop
             
-      #s.tb = calculate.s ( popAges )
-      #plot( s.tb$s ~ s.tb$t, type='l', log='x' ) 
-      
-      #lifespanGomp = flexsurvreg(formula = Surv(popAges) ~ 1, dist = 'gompertz') ### Use the flexsurvreg package to fit lifespan data to gompertz or weibull distribution
-      #lifespanWeib = flexsurvreg(formula = Surv(popAges) ~ 1, dist = 'weibull')  
-      #c(lifespanWeib$AIC, lifespanGomp$AIC, lifespanWeib$AIC - lifespanGomp$AIC )
-      #sOject = Surv(popAges)
+      # s.tb = calculate.s ( popAges )      #plot( s.tb$s ~ s.tb$t, type='l', log='x' )       
+      # lifespanGomp = flexsurvreg(formula = Surv(popAges) ~ 1, dist = 'gompertz') ### Use the flexsurvreg package to fit lifespan data to gompertz or weibull distribution
+      # lifespanWeib = flexsurvreg(formula = Surv(popAges) ~ 1, dist = 'weibull')  
+      # c(lifespanWeib$AIC, lifespanGomp$AIC, lifespanWeib$AIC - lifespanGomp$AIC )
+      # sOject = Surv(popAges)
       
       timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
       age.file.name=paste("cutoff", degreeCutoff, "p", p, "lambda", lambda, "time", timestamp, "txt", sep="." )
       full_age_dir = paste(path, '/', 'popages', sep='')
       system(paste('mkdir ', full_age_dir ))
-      full_age_file = paste(path, '/', age.file.name, sep='')
+      full_age_file = paste( full_age_dir,'/', age.file.name, sep='')
       
       write.csv( popAges, full_age_file, row.names=F)
       
@@ -123,17 +121,4 @@ for( i in 1:5 ){
     #write.csv(sim, file= paste(currentwkdir, "sce_sim_", timestamp, ".csv", sep=""), row.names=F)
   } #end of lambda loop
   
-  #write.csv(sim, file="sceGINPPIaging_sim_2013121_end.csv", row.names=F)
-  
-  
-  
-  
-  
 }  
-
-
-################################## network simulations
-# for debug, lambda = 1/10
-# lambda = 1/35; p=0.9
-
-
