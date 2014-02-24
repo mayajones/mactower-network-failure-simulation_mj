@@ -75,8 +75,8 @@ for( i in 1:5 ){
     
   if(debug >= 5){GooddEssentialORFsPPI = GooddEssentialORFsPPI[1:100]  }
   
-  lambda_v = 1/c(27)
-  p_v = seq(0.7, 0.8, by=0.1)  ; #the chance that each gene interaction is active at t=0
+  lambda_v = 1/c(3^4)
+  p_v = seq(0.9, 1.0, by=0.1)  ; #the chance that each gene interaction is active at t=0
   sim_names = c( "degreeCutoff","p", "lambda", "meanLS", "medianLS", "R","G", "GompAIC", "WeibAIC")
   sim       = t( c(NA,     NA,   NA,       NA,       NA,        NA,  NA,   NA,      NA))
   sim = data.frame(sim)
@@ -97,15 +97,8 @@ for( i in 1:5 ){
           j = j+1
         } 
       }# end of j while-loop, population loop
-      
-      #time2 = date()
-      #hist(popAges)
-      #summary(popAges)
-      #popAges = popAges[popAges>0]; #remove dead-births, which can occur when p is low
-      
-      #time1; time2; 
+            
       #s.tb = calculate.s ( popAges )
-      #plot( s.tb$s ~ s.tb$t ) 
       #plot( s.tb$s ~ s.tb$t, type='l', log='x' ) 
       
       #lifespanGomp = flexsurvreg(formula = Surv(popAges) ~ 1, dist = 'gompertz') ### Use the flexsurvreg package to fit lifespan data to gompertz or weibull distribution
@@ -113,9 +106,13 @@ for( i in 1:5 ){
       #c(lifespanWeib$AIC, lifespanGomp$AIC, lifespanWeib$AIC - lifespanGomp$AIC )
       #sOject = Surv(popAges)
       
-      #timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
-      #age.file.name=paste("cutoff", degreeCutoff, "p", p, "lambda", lambda, "time", timestamp, "txt", sep="." )
-      #write.csv( popAges, paste("simulated.ages/",age.file.name, sep=""), row.names=F)
+      timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
+      age.file.name=paste("cutoff", degreeCutoff, "p", p, "lambda", lambda, "time", timestamp, "txt", sep="." )
+      full_age_dir = paste(path, '/', 'popages', sep='')
+      system(paste('mkdir ', full_age_dir ))
+      full_age_file = paste(path, '/', age.file.name, sep='')
+      
+      write.csv( popAges, full_age_file, row.names=F)
       
       #sim_names = c( "cutoff","p", "lambda", "meanLS", "medianLS", "R","G", "GompAIC", "WeibAIC")
       #sim = rbind(sim, c( degreeCutoff, p, lambda, mean(popAges), median(popAges), 
