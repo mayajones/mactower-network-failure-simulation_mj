@@ -18,7 +18,7 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
 
 # remove self-intxns
 
-for( i in 1:3 ){ 
+for( i in 1:100 ){ 
   path = paste('dipgin.ms02.output/', i, sep='')
   ms02file = paste('ms02_', i, ".tab", sep='')
   infile = paste( path, '/', ms02file, sep=""); print(infile)
@@ -75,8 +75,8 @@ for( i in 1:3 ){
     
   if(debug >= 5){GooddEssentialORFsPPI = GooddEssentialORFsPPI[1:100]  }
   
-  lambda_v = 1/c(3^4)
-  p_v = seq(0.9, 1.0, by=0.1)  ; #the chance that each gene interaction is active at t=0
+  lambda_v = 1/c(1/100, 1/50, 1/25 )
+  p_v = seq(0.6, 1.0, by=0.1)  ; #the chance that each gene interaction is active at t=0
   sim_names = c( "degreeCutoff","p", "lambda", "meanLS", "medianLS", "R","G", "GompAIC", "WeibAIC")
   sim       = t( c(NA,     NA,   NA,       NA,       NA,        NA,  NA,   NA,      NA))
   sim = data.frame(sim)
@@ -84,7 +84,7 @@ for( i in 1:3 ){
 
   for(lambda in lambda_v) {  
     for( p in p_v) {  # p=0.9, #for debug
-      popSize = 10 #too small pop size and too small p can lead to very few living individuals
+      popSize = 500 #too small pop size and too small p can lead to very few living individuals
       popAges = numeric(popSize)
       time1 = date()
       j=1; count = 0; 
@@ -100,7 +100,7 @@ for( i in 1:3 ){
             
       
       timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
-      age.file.name=paste("cutoff", degreeCutoff, "p", p, "lambda", lambda, "time", timestamp, "txt", sep="." )
+      age.file.name=paste("cutoff", degreeCutoff, "p", p, "lambda", lambda, 'popsize',popSize, "time",timestamp, "txt", sep="." )
       full_age_dir = paste(path, '/', 'popages', sep='')
       system(paste('mkdir ', full_age_dir ))
       full_age_file = paste( full_age_dir,'/', age.file.name, sep='')
