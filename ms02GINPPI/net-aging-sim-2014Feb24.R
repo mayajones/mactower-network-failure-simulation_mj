@@ -88,8 +88,9 @@ for( i in 1:100 ){
       popAges = numeric(popSize)
       time1 = date()
       j=1; count = 0; 
-      while ((j <= popSize) && ( count < popSize*100)) {
-        count = count + 1;       
+      while ((j <= popSize) && ( count < popSize*30)) {
+        count = count + 1;      
+        print(paste("count=",count))
         currentNetworkAge = single_network_failure(lambda, p, pairs, GooddEssentialORFsPPI)
         #single_network_failure = function(lambda, p, pairs, runningORFs) {   
         if (currentNetworkAge > 0) {
