@@ -82,6 +82,9 @@ for( i in 1:100 ){
   sim = data.frame(sim)
   names(sim) = sim_names
 
+  full_age_dir = paste(path, '/', 'popages', sep='')
+  system(paste('mkdir ', full_age_dir ))
+  
   for(lambda in lambda_v) {  
     for( p in p_v) {  # p=0.9, #for debug
       popSize = 500 #too small pop size and too small p can lead to very few living individuals
@@ -102,8 +105,6 @@ for( i in 1:100 ){
       
       timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
       age.file.name=paste("cutoff", degreeCutoff, "p", p, "lambda", lambda, 'popsize',popSize, "time",timestamp, "txt", sep="." )
-      full_age_dir = paste(path, '/', 'popages', sep='')
-      system(paste('mkdir ', full_age_dir ))
       full_age_file = paste( full_age_dir,'/', age.file.name, sep='')
       
       write.csv( popAges, full_age_file, row.names=F)
