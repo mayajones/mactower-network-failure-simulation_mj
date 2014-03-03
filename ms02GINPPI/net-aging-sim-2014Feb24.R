@@ -10,6 +10,7 @@ source("network.r")
 
 #setwd("~/projects/0.network.aging.prj/0.ppi.reliability.simulation")
 list.files(path='data', )
+setwd("~/projects/0.ginppi.reliability.simulation/ms02GINPPI")
 
 debug = 0; 
 
@@ -18,7 +19,7 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
 
 # remove self-intxns
 
-for( i in 1:100 ){ 
+for( i in 3:100 ){ 
   path = paste('dipgin.ms02.output/', i, sep='')
   ms02file = paste('ms02_', i, ".tab", sep='')
   infile = paste( path, '/', ms02file, sep=""); print(infile)
