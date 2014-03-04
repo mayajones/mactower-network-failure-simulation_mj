@@ -78,7 +78,7 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
     
   if(debug >= 5){GooddEssentialORFsPPI = GooddEssentialORFsPPI[1:100]  }
   
-  lambda_v = 1/c(100, 50, 25 ) #2014Feb 25, fix double inverse bug in lambda
+  lambda_v = 1/c(25, 50, 100 ) #2014Feb 25, fix double inverse bug in lambda
   p_v = seq(0.6, 1.0, by=0.1)  ; #the chance that each gene interaction is active at t=0
   sim_names = c( "degreeCutoff","p", "lambda", "meanLS", "medianLS", "R","G", "GompAIC", "WeibAIC")
   sim       = t( c(NA,     NA,   NA,       NA,       NA,        NA,  NA,   NA,      NA))
@@ -88,11 +88,11 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
   #full_age_dir = paste(path, '/', 'popages', sep='')
   #system(paste('mkdir ', full_age_dir ))
   full_age_dir = "out20140303"  
-  #system( 'mkdir out20140303')
+  system( 'mkdir out20140303')
 
   for(lambda in lambda_v) {  
     for( p in p_v) {  # p=0.9, #for debug
-      popSize = 500 #too small pop size and too small p can lead to very few living individuals
+      popSize = 10000 #too small pop size and too small p can lead to very few living individuals
       popAges = numeric(popSize)
       time1 = date()
       j=1; count = 0; 
