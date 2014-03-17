@@ -10,6 +10,7 @@ list.files()
 origAgeFiles = list.files(path="original_ginppit_failures")
 origAgeFiles
 
+list.files(path="ms02.gindip.failures/2/popages")
 ms02AgeFiles = list.files(path='ms02.gindip.failures/1/popages', pattern='lambda.0.04')
 ms02AgeFiles
 
@@ -24,7 +25,7 @@ s.ori = calculate.s(tb.ori[,1])
 s.ms02 = calculate.s(tb.ms02[,1])
 
 ks.test( tb.ori[,1], tb.ms02[,1])
-wilcox.test( tb.ori[,1], tb.ms02[,1])
+wilcox.test( tb.ori[,1], c(tb.ms02[,1],tb.ms02[,1], tb.ms02[,1], tb.ms02[,1]))
 
 plot( s.ori$s ~ s.ori$t, type='l',col='blue' )
 lines( s.ms02$s ~ s.ms02$t, col='red')
