@@ -20,7 +20,7 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
 # remove self-intxns
 
 #for ( i in 1:100) #
-for( i in 3:100 ){ ##start at 3 after crush
+for( i in 1:100 ){ ##start at 3 after crush
   path = paste('dipgin.ms02.output/', i, sep='')
   ms02file = paste('ms02_', i, ".tab", sep='')
   infile = paste( path, '/', ms02file, sep=""); print(infile)
@@ -89,7 +89,8 @@ for( i in 3:100 ){ ##start at 3 after crush
   
   for(lambda in lambda_v) {  
     for( p in p_v) {  # p=0.9, #for debug
-      popSize = 500 #too small pop size and too small p can lead to very few living individuals
+      #popSize = 500 #too small pop size and too small p can lead to very few living individuals
+      popSize = 2000 #20140317 Monday
       popAges = numeric(popSize)
       time1 = date()
       j=1; count = 0; 
