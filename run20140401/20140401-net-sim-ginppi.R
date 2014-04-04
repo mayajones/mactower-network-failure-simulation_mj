@@ -87,7 +87,7 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
 
   #full_age_dir = paste(path, '/', 'popages', sep='')
   #system(paste('mkdir ', full_age_dir ))
-  full_age_dir = "out20140319"  ####chang here
+  full_age_dir = "out20140401"  ####chang here
   system( 'mkdir out20140401')  ### change here
 
   for(lambda in lambda_v) {  
