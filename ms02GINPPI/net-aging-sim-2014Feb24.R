@@ -20,7 +20,7 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
 # remove self-intxns
 
 #for ( i in 1:100) #
-for( i in 1:100 ){ ##start at 3 after crush
+for( i in 3:100 ){ ##start at 3 after power outage, 20140407
   path = paste('dipgin.ms02.output/', i, sep='')
   ms02file = paste('ms02_', i, ".tab", sep='')
   infile = paste( path, '/', ms02file, sep=""); print(infile)
