@@ -1,3 +1,5 @@
+#2014 April 9. Rerun using 2014 April 9 version 'network.r' with correct ms02 function.
+
 #permuate merged yeast PPI+GIN
 
 #2014 Feb 12, re-name function to ms02_singlerun
