@@ -77,8 +77,8 @@ for( i in 3:100 ){ #20140410
     
   if(debug >= 5){GooddEssentialORFsPPI = GooddEssentialORFsPPI[1:100]  }
   
-  lambda_v = 1/c(100, 50, 25 ) #2014Feb 25, fix double inverse bug in lambda
-  p_v = seq(0.6, 1.0, by=0.1)  ; #the chance that each gene interaction is active at t=0
+  lambda_v = 1/c(100, 50 ) #2014Feb 25, fix double inverse bug in lambda
+  p_v = seq(0.6, 1.0, by=0.2)  ; #the chance that each gene interaction is active at t=0
   sim_names = c( "degreeCutoff","p", "lambda", "meanLS", "medianLS", "R","G", "GompAIC", "WeibAIC")
   sim       = t( c(NA,     NA,   NA,       NA,       NA,        NA,  NA,   NA,      NA))
   sim = data.frame(sim)
