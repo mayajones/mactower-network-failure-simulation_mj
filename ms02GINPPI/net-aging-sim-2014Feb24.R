@@ -20,8 +20,9 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
 # remove self-intxns
 
 #for ( i in 1:100) #
-for( i in 3:100 ){ #20140410
-  path = paste('dipgin.ms02.output/', i, sep='')
+#for( i in 3:100 ){ #20140410
+for( i in 62:80 ){ #20141205
+    path = paste('dipgin.ms02.output/', i, sep='')
   ms02file = paste('ms02_', i, ".tab", sep='')
   infile = paste( path, '/', ms02file, sep=""); print(infile)
   pairs = read.table( infile, header=T, sep="\t", colClass = c("character", "character", NA) )
