@@ -21,7 +21,7 @@ essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('chara
 
 #for ( i in 1:100) #
 #for( i in 3:100 ){ #20140410
-for( i in 81:100 ){ #20141205
+for( i in 62:80 ){ #20141205
     path = paste('dipgin.ms02.output/', i, sep='')
   ms02file = paste('ms02_', i, ".tab", sep='')
   infile = paste( path, '/', ms02file, sep=""); print(infile)
