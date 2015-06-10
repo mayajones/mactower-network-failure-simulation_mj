@@ -10,7 +10,8 @@
 #require(igraph)
 rm(list=ls())
 debug = 0
-setwd("~/projects/0.ginppi.reliability.simulation/ms02GINPPI")
+#setwd("~/projects/0.ginppi.reliability.simulation/ms02GINPPI")
+setwd("~/github/mactower-network-failure-simulation/ms02GINPPI")
 #set.seed(2014)
 source('network.r')
 
@@ -23,7 +24,7 @@ if(debug==9) {
  net = net[1:90000,]
 }
 
-for( i in 2:100) {
+for( i in 100:105) {
  net.ms02 = ms02_singlerun( net, indebug=0 )
  cmnd = paste( "mkdir dipgin.ms02.output/", i, sep="")
  system( cmnd )
