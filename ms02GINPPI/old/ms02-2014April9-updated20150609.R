@@ -1,13 +1,12 @@
-#2014 April 9. Rerun using 2014 April 9 version 'network.r' with correct ms02 function.
-
 #permuate merged yeast PPI+GIN
 
+#2015 June 25. Commandline pass parameters
+#2014 April 9. Rerun using 2014 April 9 version 'network.r' with correct ms02 function.
 #2014 Feb 12, re-name function to ms02_singlerun
 #2014 Jan 31, fixed a bug that inserted "NA" into new network. The bug seems to be caused by spliting the 
 # arrays. I rewrote the spliting portion. 
 
 
-#require(igraph)
 rm(list=ls())
 debug = 0
 #setwd("~/projects/0.ginppi.reliability.simulation/ms02GINPPI")
