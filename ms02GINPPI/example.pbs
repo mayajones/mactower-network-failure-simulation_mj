@@ -1,0 +1,26 @@
+#!/bin/bash
+# Request 15 cores
+#PBS -l nodes=1:ppn=15
+#  Request 1hr of cpu time
+#PBS -l walltime=0:00:01:00
+
+module load R/3.2.1-mkl
+echo hostname
+
+pwd
+cd /crucible/mc48o9p/hqin2/mactower-network-failure-simulation-master/ms02GINPPI
+pwd
+
+numactl -C +0 R --vanilla --slave -f ./example.R --args 1 199999 '_zero' &
+numactl -C +1 R --vanilla --slave -f ./example.R --args 2 299999 '_one' &
+numactl -C +2 R --vanilla --slave -f ./example.R --args 3 399999 '_two' &
+numactl -C +3 R --vanilla --slave -f ./example.R --args 4 499999 '_three' &
+numactl -C +4 R --vanilla --slave -f ./example.R --args 4 499999 '_four' &
+numactl -C +5 R --vanilla --slave -f ./example.R --args 4 499999 '_five' &
+numactl -C +6 R --vanilla --slave -f ./example.R --args 4 499999 '_six' &
+numactl -C +7 R --vanilla --slave -f ./example.R --args 4 499999 '_seven' &
+numactl -C +8 R --vanilla --slave -f ./example.R --args 4 499999 '_eight' &
+numactl -C +9 R --vanilla --slave -f ./example.R --args 4 499999 '_nine' &
+
+wait
+

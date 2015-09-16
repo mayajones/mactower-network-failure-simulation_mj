@@ -1,11 +1,10 @@
 #!/bin/bash
 # Request 15 cores
-#PBS -l nodes=1:ppn=5
-#  Request 10 minutes of cpu time
-#PBS -l walltime=10:00
+#PBS -l nodes=1:ppn=15
+#  Request 30 minutes of cpu time
+#PBS -l walltime=30:00
 
-source /bin/bash
-module load R
+module load R/3.2.1-mkl
 
 echo hostname
 
@@ -13,7 +12,5 @@ pwd
 cd /crucible/mc48o9p/hqin2/mactower-network-failure-simulation-master/ms02GINPPI
 pwd
 
-ja
-R -f ms02-2015June24.R --args 1000 1002
-ja -chlst
+R --vanilla --slave -f ms02-2015Aug27.R --args 1000 1001
 
