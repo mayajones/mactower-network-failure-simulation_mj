@@ -1,0 +1,5 @@
+[Previously saved workspace restored]
+
+mkdir: cannot create directory `dipgin.ms02.output/310': File exists
+mkdir: cannot create directory `dipgin.ms02.output/311': File exists
+=>> PBS: job killed: walltime 14446 exceeded limit 14400

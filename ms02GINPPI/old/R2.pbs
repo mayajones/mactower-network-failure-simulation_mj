@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -q batch
+#PBS -l ncpus=16
+#PBS -l walltime=0:03:00
+
+source /usr/share/modules/init/bash
+module load R
+
+cd $SCRATCH
+ja
+R --slave CMD BATCH ./test1.R
+ja -chlst
+

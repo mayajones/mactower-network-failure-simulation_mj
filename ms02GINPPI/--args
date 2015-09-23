@@ -1,0 +1,103 @@
+
+R version 3.0.3 (2014-03-06) -- "Warm Puppy"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> #20150914 testing parallel jobs on greenfield
+> # R CMD BATCH ./example.R --args 2 35 red
+> rm(list=ls())
+> 
+> source("lifespan.r")
+> source("network.r")
+> 
+> #R -f file --args start end
+> options(echo=TRUE) # if you want see commands in output file
+> args <- commandArgs(trailingOnly = TRUE)
+> print(args)
+character(0)
+> # trailingOnly=TRUE means that only your arguments are returned, check:
+> # print(commandsArgs(trailingOnly=FALSE))
+> start = as.integer(args[1]); start; 
+[1] NA
+> end = as.integer(args[2]); end; 
+[1] NA
+> tag = args[3]
+>   
+> myhost = 'greenfield'  # 'byte' 'blacklight' 'mactower'
+> myhost = 'byte'  # 'byte' 'blacklight' 'mactower'
+> myhost = 'helen'  # 'byte' 'blacklight' 'helen'
+> 
+> mydir = "/crucible/mc48o9p/hqin2/mactower-network-failure-simulation-master/ms02GINPPI"
+> if (myhost == 'byte') {  mydir = "/Users/hqin/github/mactower-network-failure-simulation/ms02GINPPI"
++ } else if (myhost == 'helen') { mydir = "/Users/hqin/github/mactower-network-failure-simulation/ms02GINPPI";  
++ }
+> 
+> print(paste("current dir is:", mydir))
+[1] "current dir is: /Users/hqin/github/mactower-network-failure-simulation/ms02GINPPI"
+> list.files()
+ [1] "_single_network_faliure2014Feb19.R"  
+ [2] "--args"                              
+ [3] "dipgin.ms02.output"                  
+ [4] "example.R"                           
+ [5] "lifespan.r"                          
+ [6] "lifespan2014Feb19.r"                 
+ [7] "merged_PPIGIN_2014Jan20.tab"         
+ [8] "ms02-2015Aug27.R"                    
+ [9] "ms02.pbs"                            
+[10] "net-aging-sim-2014Sep7b.R"           
+[11] "netaging.pbs.o1999"                  
+[12] "netaginge.pbs"                       
+[13] "netagingf.pbs"                       
+[14] "network.r"                           
+[15] "old"                                 
+[16] "pair.tab"                            
+[17] "repeat.tab"                          
+[18] "run.sh"                              
+[19] "SummaryRegressionHetHom2013Oct29.csv"
+> getwd()
+[1] "/Users/hqin/github/mactower-network-failure-simulation/ms02GINPPI"
+> 
+> print(paste("Now setwd"))
+[1] "Now setwd"
+> setwd(mydir)
+> list.files()
+ [1] "_single_network_faliure2014Feb19.R"  
+ [2] "--args"                              
+ [3] "dipgin.ms02.output"                  
+ [4] "example.R"                           
+ [5] "lifespan.r"                          
+ [6] "lifespan2014Feb19.r"                 
+ [7] "merged_PPIGIN_2014Jan20.tab"         
+ [8] "ms02-2015Aug27.R"                    
+ [9] "ms02.pbs"                            
+[10] "net-aging-sim-2014Sep7b.R"           
+[11] "netaging.pbs.o1999"                  
+[12] "netaginge.pbs"                       
+[13] "netagingf.pbs"                       
+[14] "network.r"                           
+[15] "old"                                 
+[16] "pair.tab"                            
+[17] "repeat.tab"                          
+[18] "run.sh"                              
+[19] "SummaryRegressionHetHom2013Oct29.csv"
+> 
+> debug = 0; 
+> x = start:end 
+Error in start:end : NA/NaN argument
+Execution halted

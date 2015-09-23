@@ -1,0 +1,145 @@
+hostname
+/usr/uo/1/hqin2
+/brashear/hqin2/mactower-network-failure-simulation-master/ms02GINPPI
+
+R version 2.15.3 (2013-03-01) -- "Security Blanket"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #permuate merged yeast PPI+GIN
+> 
+> #2015 June 25. Commandline pass parameters
+> #2014 April 9. Rerun using 2014 April 9 version 'network.r' with correct ms02 function.
+> #2014 Feb 12, re-name function to ms02_singlerun
+> #2014 Jan 31, fixed a bug that inserted "NA" into new network. The bug seems to be caused by spliting the 
+> # arrays. I rewrote the spliting portion. 
+> 
+> rm(list=ls())
+> 
+> #R -f file --args start end
+> options(echo=TRUE) # if you want see commands in output file
+> args <- commandArgs(trailingOnly = TRUE)
+> print(args)
+[1] "799" "800"
+> # trailingOnly=TRUE means that only your arguments are returned, check:
+> # print(commandsArgs(trailingOnly=FALSE))
+> start = as.integer(args[1])
+> end = as.integer(args[2])
+> 
+> debug = 0
+> myhost = 'blacklight'  # 'byte' 'blacklight' 'mactower'
+> #myhost = 'byte'  # 'byte' 'blacklight' 'mactower'
+> 
+> mydir = "/brashear/hqin2/mactower-network-failure-simulation-master/ms02GINPPI"
+> if (myhost == 'byte') {
++   mydir = "~/github/mactower-network-failure-simulation/ms02GINPPI"
++ }  
+> 
+> setwd(mydir)
+> #set.seed(2014)
+> source('network.r')
+> 
+> #net = read.table("repeat.tab")
+> #write.table(pairs, "merged_PPIGIN_2014Jan20.tab", quote=F, row.names=F, col.names=F, sep='\t')
+> net = read.table( "merged_PPIGIN_2014Jan20.tab", header=F, sep="\t", colClass = c("character", "character") )
+> head(net)
+       V1      V2
+1 YER032W YDR195W
+2 YDR422C YDR477W
+3 YBR097W YLR240W
+4 YDL014W YLL011W
+5 YGL116W YGL086W
+6 YGL116W YJL030W
+> if(debug==9) { 
++   #net = read.table('pair.tab',header=F) 
++  net = net[1:90000,]
++ }
+> 
+> for( i in start:end) {
++  net.ms02 = ms02_singlerun( net, indebug=0 )
++  cmnd = paste( "mkdir dipgin.ms02.output/", i, sep="")
++  system( cmnd )
++  outputname = paste( 'dipgin.ms02.output/', i, '/', "ms02_",i,".tab", sep="")
++  write.table(net.ms02, outputname, quote=F, row.names=F, sep="\t")  #2014Feb 17
++ }
+> 
+> #do they have the same degree?
+> #t1 = table(c(net[,1],net[,2]))
+> #t2 = table(c(net.ms02[,1],net.ms02[,2]))
+> #comp <- t1 == t2
+> #table(comp)
+> #tf = comp[comp==F]; tf
+> #t1[names(tf)[1]]
+> #t1[names(tf)]
+> #t2[names(tf)]
+> 
+> 
+> 
+> 
+> 
+> 
+
+
+Job Accounting - Command Report
+===============================
+
+    Command       Started    Elapsed    User CPU    Sys CPU       CPU      Block I/O    Swap In      CPU MEM        Characters           Logical I/O      CoreMem   VirtMem   Ex
+     Name           At       Seconds    Seconds     Seconds    Delay Secs  Delay Secs  Delay Secs  Avg Mbytes     Read     Written     Read      Write    HiValue   HiValue   St   Ni  Fl   SBU's 
+===============  ========  ==========  ==========  ==========  ==========  ==========  ==========  ==========  =========  =========  ========  ========  ========  ========  ===  ===  ==  =======
+# CFG   ON(    1) (    7)  04:16:14 06/27/2015  System:  Linux bl0.psc.teragrid.org 2.6.32.49-0.3-default #1 SMP 2011-12-02 11:28:04 +0100 x86_64
+ja               04:16:14        0.01        0.00        0.00        0.00        0.00        0.00        9.64      0.019      0.000        19         3      1076     23788    0    0         0.00
+uname            04:16:14        0.00        0.00        0.00        0.00        0.00        0.00        4.39      0.004      0.000         8         1       672      5324    0    0         0.00
+R                04:16:14        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.000      0.000         0         1       916     12756    0    0  F      0.00
+sed              04:16:14        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.004      0.000        10         1       828      5408    0    0         0.00
+R                04:16:14        0.00        0.00        0.01        0.00        0.00        0.00       13.21      0.000      0.000         0         0       888     12752    0    0  F      0.00
+R                04:16:14        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.000      0.000         0         1       924     12756    0    0  F      0.00
+sed              04:16:14        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.004      0.000        10         1       820      5408    0    0         0.00
+R                04:16:14        0.00        0.00        0.00        0.00        0.00        0.00       13.10      0.000      0.000         0         0       888     12752    0    0  F      0.00
+mkdir            04:19:14        0.04        0.00        0.03        0.00        0.00        0.00        4.78      0.014      0.000        24         4       812      9564    1    0         0.00
+mkdir            04:22:30        0.04        0.00        0.03        0.00        0.00        0.00        3.52      0.014      0.000        24         0       744      9564    0    0         0.00
+rm               04:22:33        0.03        0.00        0.01        0.00        0.00        0.00        3.01      0.012      0.000        20         0       720      5348    0    0         0.00
+R                04:16:15      378.56      376.35        1.42        0.20        0.53        0.00      834.03     31.088     39.438       210       180    707636    754984    0    0         0.00
+
+
+Job CSA Accounting - Summary Report
+====================================
+
+Job Accounting File Name         : /dev/tmpfs/461706/.jacct70b8a
+Operating System                 : Linux bl0.psc.teragrid.org 2.6.32.49-0.3-default #1 SMP 2011-12-02 11:28:04 +0100 x86_64
+User Name (ID)                   : hqin2 (51231)
+Group Name (ID)                  : mc48o9p (15132)
+Project Name (ID)                : ? (0)
+Job ID                           : 0x70b8a
+Report Starts                    : 06/27/15 04:16:14
+Report Ends                      : 06/27/15 04:22:33
+Elapsed Time                     :          379      Seconds
+User CPU Time                    :          376.3600 Seconds
+System CPU Time                  :            1.5280 Seconds
+CPU Time Core Memory Integral    :       148842.7347 Mbyte-seconds
+CPU Time Virtual Memory Integral :       166232.1590 Mbyte-seconds
+Maximum Core Memory Used         :          691.0508 Mbytes
+Maximum Virtual Memory Used      :          737.2891 Mbytes
+Characters Read                  :           31.1601 Mbytes
+Characters Written               :           39.4382 Mbytes
+Logical I/O Read Requests        :          325
+Logical I/O Write Requests       :          192
+CPU Delay                        :            0.1991 Seconds
+Block I/O Delay                  :            0.5325 Seconds
+Swap In Delay                    :            0.0000 Seconds
+Number of Commands               :           12
+System Billing Units             :            0.0000

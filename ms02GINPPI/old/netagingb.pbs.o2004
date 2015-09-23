@@ -1,0 +1,25 @@
+hostname
+/home/hqin2
+/crucible/mc48o9p/hqin2/mactower-network-failure-simulation-master/ms02GINPPI
+WARNING: ignoring environment value of R_HOME
+> args <- commandArgs(trailingOnly = TRUE)
+> print(args)
+[1] "102" "111"
+> # trailingOnly=TRUE means that only your arguments are returned, check:
+> # print(commandsArgs(trailingOnly=FALSE))
+> start = as.integer(args[1]); start; 
+[1] 102
+> end = as.integer(args[2]); end; 
+[1] 111
+> 
+> #setwd("~/projects/0.network.aging.prj/0.ppi.reliability.simulation")
+> #list.files(path='data', )
+> #setwd("~/projects/0.ginppi.reliability.simulation/ms02GINPPI")
+> 
+> myhost = 'greenfield'  # 'byte' 'blacklight' 'mactower'
+> myhost = 'byte'  # 'byte' 'blacklight' 'mactower'
+> mydir = "/crucible/mc48o9p/hqin2/mactower-network-failure-simulation-master/ms02GINPPI"
+> if (myhost == 'byte') {  mydir = "/Users/hqin/github/mactower-network-failure-simulation/ms02GINPPI"
++ }  
+> 
+> setwd(mydir)

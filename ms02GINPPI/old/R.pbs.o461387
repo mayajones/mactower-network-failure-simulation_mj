@@ -1,0 +1,54 @@
+hostname
+
+
+Job Accounting - Command Report
+===============================
+
+    Command       Started    Elapsed    User CPU    Sys CPU       CPU      Block I/O    Swap In      CPU MEM        Characters           Logical I/O      CoreMem   VirtMem   Ex
+     Name           At       Seconds    Seconds     Seconds    Delay Secs  Delay Secs  Delay Secs  Avg Mbytes     Read     Written     Read      Write    HiValue   HiValue   St   Ni  Fl   SBU's 
+===============  ========  ==========  ==========  ==========  ==========  ==========  ==========  ==========  =========  =========  ========  ========  ========  ========  ===  ===  ==  =======
+# CFG   ON(    1) (    7)  15:02:53 06/23/2015  System:  Linux bl0.psc.teragrid.org 2.6.32.49-0.3-default #1 SMP 2011-12-02 11:28:04 +0100 x86_64
+ja               15:02:53        0.04        0.00        0.01        0.00        0.02        0.00       14.54      0.019      0.000        19         3      1076     23788    0    0         0.00
+uname            15:02:53        0.00        0.00        0.00        0.00        0.00        0.00        4.04      0.004      0.000         8         1       672      5324    0    0         0.00
+sed              15:02:53        0.00        0.00        0.00        0.00        0.00        0.00        9.54      0.006      0.000        10         1       868      5432    0    0         0.00
+sh               15:02:53        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.000      0.000         0         1       996     12628    0    0  F      0.00
+basename         15:02:53        0.00        0.00        0.00        0.00        0.00        0.00        0.03      0.004      0.000         8         1       676      5324    0    0         0.00
+uname            15:02:53        0.00        0.00        0.00        0.00        0.00        0.00        0.39      0.004      0.000         8         1       676      5328    0    0         0.00
+R                15:02:53        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.000      0.000         0         1       924     12760    0    0  F      0.00
+sed              15:02:53        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.004      0.000        10         1       832      5408    0    0         0.00
+R                15:02:53        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.000      0.000         0         0       900     12756    0    0  F      0.00
+R                15:02:53        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.000      0.000         0         1       932     12760    0    0  F      0.00
+sed              15:02:53        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.004      0.000        10         1       828      5408    0    0         0.00
+R                15:02:53        0.00        0.00        0.01        0.00        0.00        0.00        0.00      0.000      0.000         0         0       900     12756    0    0  F      0.00
+rm               15:03:04        0.02        0.00        0.01        0.00        0.00        0.00        4.81      0.012      0.000        20         0       728      5348    0    0         0.00
+R                15:02:53       11.14        6.47        1.09        0.01        3.44        0.00      182.42     20.319      0.001       204        24    128068    181580    1    0         0.00
+sh               15:02:53       11.23        0.01        0.00        0.00        0.02        0.00       10.48      0.047      0.000        62         0      1620     12628    1    0         0.00
+
+
+Job CSA Accounting - Summary Report
+====================================
+
+Job Accounting File Name         : /dev/tmpfs/461387/.jacct70a4b
+Operating System                 : Linux bl0.psc.teragrid.org 2.6.32.49-0.3-default #1 SMP 2011-12-02 11:28:04 +0100 x86_64
+User Name (ID)                   : hqin2 (51231)
+Group Name (ID)                  : mc48o9p (15132)
+Project Name (ID)                : ? (0)
+Job ID                           : 0x70a4b
+Report Starts                    : 06/23/15 15:02:53
+Report Ends                      : 06/23/15 15:03:04
+Elapsed Time                     :           11      Seconds
+User CPU Time                    :            6.4840 Seconds
+System CPU Time                  :            1.1630 Seconds
+CPU Time Core Memory Integral    :          536.8796 Mbyte-seconds
+CPU Time Virtual Memory Integral :          842.6467 Mbyte-seconds
+Maximum Core Memory Used         :          125.0664 Mbytes
+Maximum Virtual Memory Used      :          177.3242 Mbytes
+Characters Read                  :           20.4245 Mbytes
+Characters Written               :            0.0016 Mbytes
+Logical I/O Read Requests        :          359
+Logical I/O Write Requests       :           36
+CPU Delay                        :            0.0100 Seconds
+Block I/O Delay                  :            3.4757 Seconds
+Swap In Delay                    :            0.0000 Seconds
+Number of Commands               :           15
+System Billing Units             :            0.0000

@@ -1,0 +1,16 @@
+#!/bin/bash
+# Request 15 cores
+#PBS -l nodes=1:ppn=15
+#  Request 2:30 minutes of cpu time
+#PBS -l walltime=02:30:00
+
+module load R/3.2.1-mkl
+
+echo hostname
+
+pwd
+cd /crucible/mc48o9p/hqin2/mactower-network-failure-simulation-master/ms02GINPPI
+pwd
+
+
+R --vanilla --slave -f net-aging-sim-2014Sep7b.R --args 102 111 

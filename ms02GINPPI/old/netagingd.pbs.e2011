@@ -1,0 +1,12 @@
+mkdir: cannot create directory 'dipgin.ms02.output/90/popages': File exists
+There were 50 or more warnings (use warnings() to see the first 50)
+Error: unexpected '}' in "}"
+Execution halted
+There were 50 or more warnings (use warnings() to see the first 50)
+Error: unexpected '}' in "}"
+Execution halted
+Error in file(file, ifelse(append, "a", "w")) : 
+  cannot open the connection
+Calls: write.csv -> eval.parent -> eval -> eval -> write.table -> file
+In addition: There were 50 or more warnings (use warnings() to see the first 50)
+Execution halted
