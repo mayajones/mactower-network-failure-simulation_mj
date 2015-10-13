@@ -6,8 +6,8 @@
 # remove non-essential gene -noessential gene interactions.
 
 rm(list=ls())
-source("lifespan.r")
-source("network.r")
+#source("lifespan.r")
+#source("network.r")
 
 setwd("~/github/mactower-network-failure-simulation")
 list.files(path='data', )
@@ -62,6 +62,7 @@ length(unique(essenTb$orf)) #5772,
   essenTb["YGL049C", ]
   
   ##output
-  write.csv(essenTb,"SummaryRegressionHetHomFactorized2015Oct13.csv")
-  write.csv(pairs, "data/merged_PPIGIN_Factorized2015Oct13.csv")
+  write.csv(essenTb,"data/SummaryRegressionHetHomFactorized2015Oct13.csv", row.names = F)
+  write.csv(pairs, "data/merged_PPIGIN_Factorized2015Oct13.csv", row.names=F)
+  write.csv(essenLookupTb, "data/essntialGeneLookupTable_20151013.csv")
   

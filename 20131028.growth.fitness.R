@@ -83,6 +83,6 @@ table(tbReal$essenflag)
 length(tbReal$orf) #5772
 length(unique(tbReal$orf)) #5772
 
-write.csv(tbReal, "SummaryRegressionHetHom2015Oct12.csv" ) #change 20151012
+write.csv(tbReal, "SummaryRegressionHetHom2015Oct12.csv", row.names = F ) #change 20151012
 #write.csv(tbReal, "SummaryRegressionHetHom2015Oct12.csv",  quote=F, row.names=F )
 
